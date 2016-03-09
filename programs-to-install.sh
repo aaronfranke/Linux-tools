@@ -23,6 +23,8 @@ sudo apt-get install -y libreoffice
 
 sudo apt-get install -y wine playonlinux
 
+sudo update-ca-certificates -f
+
 sudo apt-get update
 
 sudo apt-get upgrade -y
