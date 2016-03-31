@@ -13,23 +13,25 @@ sudo apt dist-upgrade -y
 
 sudo apt full-upgrade -y
 
+sudo apt install -y screenfetch gksu pv
+
 sudo apt install -y notepadqq
 
 sudo apt install -y grub-customizer
 
-sudo apt install -y gksu pv ffmpeg libtcmalloc-minimal4 python-gpgme
+sudo apt install -y ffmpeg python-gpgme
 
-sudo apt install -y libdvd-pkg
+sudo apt install -y libtcmalloc-minimal4
 
 sudo apt install -y mono-complete mono-vbnc libopenal1
 
 sudo apt install -y gparted thunar youtube-dl gedit
 
-sudo apt install -y screenfetch
-
 sudo apt install -y cowsay fortune-mod
 
 sudo apt install -y openjdk-8-jre psensor
+
+sudo apt install -y libdvd-pkg
 
 sudo apt install -y vlc
 
