@@ -5,6 +5,8 @@ echo 'I recommend you run "programs-to-install.sh" first!'
 
 sleep 3 
 
+sudo add-apt-repository -y ppa:webupd8team/haguichi 
+
 sudo apt update 
 
 sudo apt upgrade -y 

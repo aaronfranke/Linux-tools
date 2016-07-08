@@ -5,6 +5,8 @@ sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer
 
 sudo add-apt-repository -y ppa:notepadqq-team/notepadqq 
 
+sudo add-apt-repository -y ppa:webupd8team/java 
+
 sudo apt update 
 
 sudo apt upgrade -y 
@@ -43,9 +45,15 @@ sudo apt install -y libopenal1
 
 sudo apt install -y libgtk* 
 
+sudo apt install -y libsdl2* 
+
+sudo apt install -y liblua5* 
+
 sudo apt install -y mono-complete 
 
 sudo apt install -y mono-vbnc 
+
+sudo apt install -y exfat-* 
 
 sudo apt install -y smartmontools 
 
@@ -86,6 +94,8 @@ sudo apt install -y pcmanfm
 sudo apt install -y gedit 
 
 sudo apt install -y notepadqq 
+
+sudo apt install -y qbittorrent 
 
 sudo apt install -y firefox 
 
