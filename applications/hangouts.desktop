@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Name=Hangouts
+Exec=/usr/bin/google-chrome-stable %U --app=https://hangouts.google.com
+Icon=/home/aaronfranke/Dropbox/Public/Icons/hangouts.png
+Type=Application
+Categories=Network;WebBrowser;Multimedia;
