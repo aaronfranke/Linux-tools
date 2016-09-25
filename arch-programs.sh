@@ -1,67 +1,99 @@
 
 #!/bin/bash 
 
-pacman -Syu 
+pacman -Syu --noconfirm 
 
-pacman -S sudo 
+pacman -S --noconfirm sudo 
 
-sudo pacman -Syu 
+sudo pacman -Syu --noconfirm 
 
-sudo pacman -S vlc 
+sudo pacman -S --noconfirm vlc 
 
-sudo pacman -S screenfetch 
+sudo pacman -S --noconfirm screenfetch 
 
-sudo pacman -S gksu 
+sudo pacman -S --noconfirm gksu 
 
-sudo pacman -S pv 
+sudo pacman -S --noconfirm binutils 
 
-sudo pacman -S icoutils 
+sudo pacman -S --noconfirm glib2 
 
-sudo pacman -S ffmpeg 
+sudo pacman -S --noconfirm gcc 
 
-sudo pacman -S youtube-dl 
+sudo pacman -S --noconfirm cmake 
 
-sudo pacman -S openssh 
+sudo pacman -S --noconfirm pkg-config 
 
-sudo pacman -S gperftools 
+sudo pacman -S --noconfirm git 
 
-sudo pacman -S exfat-utils 
+sudo pacman -S --noconfirm base-devel 
 
-sudo pacman -S smartmontools 
+sudo pacman -S --noconfirm pv 
 
-sudo pacman -S stress 
+sudo pacman -S --noconfirm opendesktop-fonts 
 
-sudo pacman -S cmatrix 
+sudo pacman -S --noconfirm pavucontrol 
 
-sudo pacman -S cowsay 
+sudo pacman -S --noconfirm pulseaudio-alsa 
 
-sudo pacman -S fortune-mod 
+sudo pacman -S --noconfirm libdvdread 
 
-sudo pacman -S jre8-openjdk 
+sudo pacman -S --noconfirm libdvdcss 
 
-sudo pacman -S gparted 
+sudo pacman -S --noconfirm flac 
 
-sudo pacman -S dconf-editor 
+sudo pacman -S --noconfirm lame 
 
-sudo pacman -S gnome-system-monitor 
+sudo pacman -S --noconfirm x264 
 
-sudo pacman -S baobab 
+sudo pacman -S --noconfirm libmpeg2 
 
-sudo pacman -S engrampa 
+sudo pacman -S --noconfirm ffmpeg 
 
-sudo pacman -S pcmanfm 
+sudo pacman -S --noconfirm youtube-dl 
 
-sudo pacman -S gedit 
+sudo pacman -S --noconfirm openssh 
 
-sudo pacman -S qbittorrent 
+sudo pacman -S --noconfirm gperftools 
 
-sudo pacman -S firefox 
+sudo pacman -S --noconfirm exfat-utils 
 
-#sudo pacman -S gimp 
+sudo pacman -S --noconfirm smartmontools 
 
-#sudo pacman -S libreoffice-fresh 
+sudo pacman -S --noconfirm stress 
 
-pacman -Syu 
+sudo pacman -S --noconfirm cmatrix 
+
+sudo pacman -S --noconfirm cowsay 
+
+sudo pacman -S --noconfirm fortune-mod 
+
+sudo pacman -S --noconfirm jre8-openjdk 
+
+sudo pacman -S --noconfirm icoutils 
+
+sudo pacman -S --noconfirm gparted 
+
+sudo pacman -S --noconfirm dconf-editor 
+
+sudo pacman -S --noconfirm gnome-system-monitor 
+
+sudo pacman -S --noconfirm baobab 
+
+sudo pacman -S --noconfirm engrampa 
+
+sudo pacman -S --noconfirm pcmanfm 
+
+sudo pacman -S --noconfirm gedit 
+
+sudo pacman -S --noconfirm qbittorrent 
+
+sudo pacman -S --noconfirm firefox 
+
+#sudo pacman -S --noconfirm gimp 
+
+#sudo pacman -S --noconfirm libreoffice-fresh 
+
+pacman -Syu --noconfirm 
 
 
 

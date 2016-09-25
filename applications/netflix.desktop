@@ -2,6 +2,6 @@
 Version=1.0
 Name=Netflix
 Exec=/usr/bin/google-chrome-stable %U --kiosk https://www.netflix.com
-Icon=/home/aaronfranke/Dropbox/Public/Icons/netflix.png
+Icon=/home/aaronfranke/Documents/Icons/netflix.png
 Type=Application
 Categories=Network;WebBrowser;Multimedia;

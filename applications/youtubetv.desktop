@@ -2,6 +2,6 @@
 Version=1.0
 Name=YouTube TV
 Exec=/usr/bin/google-chrome-stable %U --kiosk http://www.youtube.com/tv
-Icon=/home/aaronfranke/Dropbox/Public/Icons/youtube.png
+Icon=/home/aaronfranke/Documents/Icons/youtube.png
 Type=Application
 Categories=Network;WebBrowser;Multimedia;

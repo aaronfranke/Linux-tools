@@ -9,6 +9,8 @@ Scripts created by me, Steam controller udev rule created by Valve.
 
 A description of each file: 
 
+arch-*.sh - Scripts for installing things onto Arch Linux. Ubuntu users, ignore these.
+
 xfceclock.txt - My preferred clock layout, for XFCE's clock. Similar to ISO-8601.
 
 clearlogs.sh - Removes log files and the entire /var/log folder. Saves some disk space. 
