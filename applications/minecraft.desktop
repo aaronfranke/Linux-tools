@@ -3,5 +3,5 @@ Version=1.0
 Type=Application
 Name=Minecraft
 Icon=/home/aaronfranke/Documents/Icons/mc.png
-Exec=java -Xss2M -jar ~/.minecraft/launcher.jar
+Exec=sh -c 'java -Xss2M -jar ~/.minecraft/launcher.jar'
 Categories=Game;

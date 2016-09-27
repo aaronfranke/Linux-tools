@@ -7,8 +7,6 @@ pacman -S --noconfirm sudo
 
 sudo pacman -Syu --noconfirm 
 
-sudo pacman -S --noconfirm openssh 
-
 sudo pacman -S --noconfirm xorg 
 
 sudo pacman -S --noconfirm xorg-xinit 

@@ -25,6 +25,8 @@ sudo apt install -y pv
 
 sudo apt install -y icoutils 
 
+sudo apt install -y mediainfo 
+
 sudo apt install -y youtube-dl 
 
 sudo apt install -y ffmpeg 
@@ -48,6 +50,8 @@ sudo apt install -y libgtk*
 sudo apt install -y libsdl2* 
 
 sudo apt install -y liblua5* 
+
+sudo apt install -y aptitude 
 
 sudo apt install -y mono-complete 
 
@@ -123,7 +127,9 @@ sudo apt dist-upgrade -y
 
 sudo apt full-upgrade -y 
 
-sudo rm -R /var/log/* && sudo mkdir /var/log/apt 
+sudo rm -R /var/log/* 
+
+sudo mkdir /var/log/apt 
 
 
 

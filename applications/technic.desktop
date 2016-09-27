@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Minecraft
+Icon=/home/aaronfranke/Documents/Icons/technic.png
+Exec=sh -c 'java -Xss2M -jar ~/.minecraft/Technic.jar'
+Categories=Game;
+Name[en_US]=Minecraft Technic
