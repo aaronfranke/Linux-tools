@@ -8,7 +8,7 @@ fi
 
 if ![ -f /usr/bin/sudo ]; then
     echo "The sudo package is required, but the script can't be run with sudo. "
-    echo "Run \"su -c 'pacman -S sudo' && ./arch-aur.sh\". "
+    echo "Run \"su -c 'pacman -S sudo' && ./setup-aur.sh\". "
     exit 2
 fi
 

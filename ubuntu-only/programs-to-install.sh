@@ -21,19 +21,7 @@ sudo apt install -y screenfetch
 
 sudo apt install -y gksu 
 
-sudo apt install -y pv 
-
-sudo apt install -y icoutils 
-
-sudo apt install -y mediainfo 
-
-sudo apt install -y youtube-dl 
-
-sudo apt install -y ffmpeg 
-
 sudo apt install -y openssh-server 
-
-sudo apt install -y python-gpgme 
 
 sudo apt install -y libtcmalloc-minimal4 
 
@@ -51,19 +39,35 @@ sudo apt install -y libsdl2*
 
 sudo apt install -y liblua5* 
 
-sudo apt install -y aptitude 
+sudo apt install -y python-gpgme 
 
 sudo apt install -y mono-complete 
 
 sudo apt install -y mono-vbnc 
 
+sudo apt install -y flac 
+
+sudo apt install -y x264 
+
+sudo apt install -y lame 
+
+sudo apt install -y cmake 
+
 sudo apt install -y exfat-* 
 
+sudo apt install -y git 
+
+sudo apt install -y aptitude 
+
 sudo apt install -y smartmontools 
+
+sudo apt install -y gsmartcontrol 
 
 sudo apt install -y stress 
 
 sudo apt install -y cmatrix 
+
+sudo apt install -y pv 
 
 sudo apt install -y cowsay 
 
@@ -81,7 +85,15 @@ sudo apt install -y grub-customizer
 
 sudo apt install -y gparted 
 
+sudo apt install -y icoutils 
+
 sudo apt install -y dconf-editor 
+
+sudo apt install -y mediainfo 
+
+sudo apt install -y ffmpeg 
+
+sudo apt install -y youtube-dl 
 
 sudo apt install -y gnome-system-monitor 
 
