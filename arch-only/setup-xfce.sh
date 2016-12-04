@@ -33,6 +33,11 @@ sudo systemctl enable lightdm.service
 
 sudo pacman -Syu --noconfirm 
 
+echo " " 
+echo "Successfully installed X.org and XFCE! " 
+echo "You may wish to reboot your system now. " 
+echo " " 
+
 
 
 

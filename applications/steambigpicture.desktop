@@ -1,7 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Type=Application
-Name=Steam Big Picture
-Icon=/home/aaronfranke/Documents/Icons/steambigpicture.png
-Exec=/usr/games/steam %U -start steam://open/bigpicture 
-Categories=Network;Multimedia;Game;

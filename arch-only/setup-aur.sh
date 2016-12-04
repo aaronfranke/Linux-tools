@@ -70,11 +70,12 @@ sudo rm -R aur_temp
 
 sudo pacman -Syu --noconfirm 
 
-yaourt -S yaourt-gui
+yaourt -S yaourt-gui 
 
-echo " "
-echo "All done! "
-echo " "
+echo " " 
+echo "Successfully installed yaourt and the AUR! " 
+echo "You may wish to reboot your system now. " 
+echo " " 
 
 
 

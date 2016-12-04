@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Steam Big Picture
+Icon=/usr/share/icons/steambigpicture.png
+Exec=sh -c "/etc/skel/steam-or-setup.sh" 
+Categories=Network;Multimedia;Game;

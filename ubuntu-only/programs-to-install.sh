@@ -39,6 +39,8 @@ sudo apt install -y libsdl2*
 
 sudo apt install -y liblua5* 
 
+sudo apt install -y vulkan-utils 
+
 sudo apt install -y python-gpgme 
 
 sudo apt install -y mono-complete 
@@ -142,6 +144,11 @@ sudo apt full-upgrade -y
 sudo rm -R /var/log/* 
 
 sudo mkdir /var/log/apt 
+
+echo " " 
+echo "Successfully installed the programs! " 
+echo "You may wish to reboot your system now. " 
+echo " " 
 
 
 
