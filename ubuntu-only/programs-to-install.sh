@@ -7,6 +7,8 @@ sudo add-apt-repository -y ppa:notepadqq-team/notepadqq
 
 sudo add-apt-repository -y ppa:webupd8team/java 
 
+sudo add-apt-repository -y ppa:wine/wine-builds 
+
 sudo apt update 
 
 sudo apt upgrade -y 
@@ -25,6 +27,10 @@ sudo apt install -y openssh-server
 
 sudo apt install -y libtcmalloc-minimal4 
 
+sudo apt install -y libdbusmenu-gtk4 
+
+sudo apt install -y libdbusmenu-gtk4:i386 
+
 sudo apt install -y lib32z1 
 
 sudo apt install -y lib32ncurses5 
@@ -38,6 +44,8 @@ sudo apt install -y libgtk*
 sudo apt install -y libsdl2* 
 
 sudo apt install -y liblua5* 
+
+sudo apt install -y libcap2-bin 
 
 sudo apt install -y vulkan-utils 
 
@@ -123,11 +131,15 @@ sudo apt install -y gimp
 
 sudo apt install -y libreoffice 
 
-sudo apt install -y wine 
+sudo apt install -y winehq-devel 
 
 sudo apt install -y playonlinux 
 
 sudo update-ca-certificates -f 
+
+sudo setcap cap_sys_ptrace=eip /usr/bin/wineserver 
+
+sudo setcap cap_sys_ptrace=eip /usr/bin/wine-preloader 
 
 sudo apt install -y libdvd-pkg 
 

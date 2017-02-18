@@ -7,6 +7,8 @@ pacman -S --noconfirm sudo
 
 sudo pacman -Syu --noconfirm 
 
+sudo pacman -S --noconfirm archlinux-keyring 
+
 sudo pacman -S --noconfirm vlc 
 
 sudo pacman -S --noconfirm screenfetch 
