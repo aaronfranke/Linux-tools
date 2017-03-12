@@ -13,6 +13,7 @@ if [ -d root ]; then
 fi
 cd ..
 
+echo " " 
 if [ -d root ]; then # If root is found, proceed. Else, exit.
 
     if [ -d all-distros ]; then # If all-distros is found, proceed. Else, exit.
@@ -20,6 +21,7 @@ if [ -d root ]; then # If root is found, proceed. Else, exit.
     else
 	echo "Error: Failed to find the \"all-distros\" folder. " 
 	echo "FAILED to execute the script! " 
+	echo " " 
 	exit 2
     fi
 
@@ -29,6 +31,7 @@ if [ -d root ]; then # If root is found, proceed. Else, exit.
         else
 	    echo "Error: Failed to find the \"ubuntu-only\" folder. " 
 	    echo "FAILED to execute the script! " 
+	    echo " " 
 	    exit 3
 	fi
     fi
@@ -41,13 +44,13 @@ if [ -d root ]; then # If root is found, proceed. Else, exit.
     if [ -f /copy-root-to-root.sh ]; then
         sudo rm /copy-root-to-root.sh
     fi
-    echo " " 
     echo "Successfully executed the script! " 
     echo " " 
     exit 0
 else
     echo "Error: Failed to find the \"root\" folder. " 
     echo "FAILED to execute the script! " 
+    echo " " 
     exit 1
 fi
 

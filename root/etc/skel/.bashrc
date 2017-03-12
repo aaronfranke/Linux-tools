@@ -8,6 +8,8 @@ case $- in
       *) return;;
 esac
 
+
+
 # Checks if xfce4-panel is installed and if it's running. 
 # If it's both installed and not running, run it and exit. 
 # Also checks if xfdesktop is running to avoid starting 
@@ -23,12 +25,14 @@ if [ -f /usr/bin/xfce4-panel ]; then
             sh -c "xfce4-panel &" &
             sleep 2
             clear
-           exit
+            exit
         fi
     fi
 fi
 
 clear
+
+
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -137,3 +141,10 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+
+clear
+
+
+
+

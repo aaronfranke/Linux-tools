@@ -1,13 +1,7 @@
 
 #!/bin/bash 
 
-sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer 
-
-sudo add-apt-repository -y ppa:notepadqq-team/notepadqq 
-
-sudo add-apt-repository -y ppa:webupd8team/java 
-
-sudo add-apt-repository -y ppa:wine/wine-builds 
+sudo dpkg --add-architecture i386 
 
 sudo apt update 
 
@@ -17,9 +11,57 @@ sudo apt dist-upgrade -y
 
 sudo apt full-upgrade -y 
 
+wget https://dl.winehq.org/wine-builds/Release.key 
+
+sudo apt-key add Release.key 
+
+sudo rm -f Release.key 
+
+ver=$(lsb_release -sr); if [ $ver != "16.10" -a $ver != "17.04" -a $ver != "16.04" ]; then ver=16.04; fi 
+
+echo "deb http://download.opensuse.org/repositories/home:/strycore/xUbuntu_$ver/ ./" | sudo tee /etc/apt/sources.list.d/lutris.list 
+
+wget -q http://download.opensuse.org/repositories/home:/strycore/xUbuntu_$ver/Release.key -O- | sudo apt-key add - 
+
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - 
+
+sudo apt-add-repository -y https://dl.winehq.org/wine-builds/ubuntu/ 
+
+sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer 
+
+sudo add-apt-repository -y ppa:notepadqq-team/notepadqq 
+
+sudo add-apt-repository -y ppa:webupd8team/java 
+
+curl https://dl.itch.ovh/archive.key | sudo apt-key add - 
+
+ITCHIO_DEB="deb https://dl.bintray.com/itchio/deb xenial main" 
+
+echo $ITCHIO_DEB | sudo tee /etc/apt/sources.list.d/itchio.list 
+
+wget -O discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
+
+sudo dpkg -i discord.deb
+
+sudo rm -f discord.deb
+
+sudo apt update 
+
+sudo apt upgrade -y 
+
+sudo apt dist-upgrade -y 
+
+sudo apt full-upgrade -y 
+
+sudo apt install -y apt-transport-https 
+
 sudo apt install -y vlc 
 
+sudo apt install -y nodejs 
+
 sudo apt install -y screenfetch 
+
+sudo apt install -y htop 
 
 sudo apt install -y gksu 
 
@@ -43,6 +85,8 @@ sudo apt install -y libgtk*
 
 sudo apt install -y libsdl2* 
 
+sudo apt install -y libsdl-ttf* 
+
 sudo apt install -y liblua5* 
 
 sudo apt install -y libcap2-bin 
@@ -62,6 +106,8 @@ sudo apt install -y x264
 sudo apt install -y lame 
 
 sudo apt install -y cmake 
+
+sudo apt install -y build-essential 
 
 sudo apt install -y exfat-* 
 
@@ -131,7 +177,7 @@ sudo apt install -y gimp
 
 sudo apt install -y libreoffice 
 
-sudo apt install -y winehq-devel 
+sudo apt install -y --install-recommends winehq-devel 
 
 sudo apt install -y playonlinux 
 
@@ -144,6 +190,8 @@ sudo setcap cap_sys_ptrace=eip /usr/bin/wine-preloader
 sudo apt install -y libdvd-pkg 
 
 sudo apt install -y steam 
+
+sudo apt install -y itch 
 
 sudo apt update 
 
