@@ -34,6 +34,11 @@ sudo apt update
 sudo apt upgrade -y 
 sudo apt full-upgrade -y 
 
+# Get rid of all existing Snap apps. WARNING: This is meant for new installs only! 
+
+sudo apt purge -y snapd 
+sudo apt install -y snapd 
+
 # For various reasons, these packages should be installed first 
 
 sudo apt install -y apt-transport-https 
@@ -42,9 +47,11 @@ sudo apt install -y vlc
 
 # Misc libraries, I recommend keeping everything here 
 
-sudo apt install -y curl
+sudo apt install -y curl 
 sudo apt install -y exfat-* 
 sudo apt install -y flac 
+sudo apt install -y gconf2 
+sudo apt install -y gvfs-bin 
 sudo apt install -y lame 
 sudo apt install -y lib32z1
 sudo apt install -y lib32ncurses5 
