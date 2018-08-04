@@ -6,7 +6,7 @@ echo "Note: This script is designed for new installs of Ubuntu 18.04 and flavors
 echo "If you already have a system with lots of custom repos, things may conflict. " 
 echo "This script will execute in a few seconds unless you press Ctrl+Z to exit. " 
 echo " " 
-sudo sleep 10 
+sudo sleep 10 # "sudo" before sleep elevates this script to sudo priviliges after the password prompt 
 
 # Start with updates 
 
@@ -18,7 +18,7 @@ sudo apt full-upgrade -y
 
 sudo dpkg --add-architecture i386 
 sudo apt install -y apt-transport-https 
-sudo apt install -y dirmngr 
+sudo apt install -y dirmngr # Mono needs it 
 
 # Mono stuff 
 
@@ -87,7 +87,6 @@ sudo apt install -y libsdl2*
 sudo apt install -y libsdl-ttf* 
 sudo apt install -y libtcmalloc-minimal4 # Portal 2 
 sudo apt install -y mono-complete 
-sudo apt install -y nodejs 
 sudo apt install -y openjdk-8-jre 
 sudo apt install -y vulkan-utils 
 sudo apt install -y x264 
