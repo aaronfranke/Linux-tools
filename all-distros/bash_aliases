@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# These aliases and functions have been added by aaronfranke's Linux-tools
+
+alias butler="$HOME/.config/itch/apps/butler/butler"
+alias extract="tar -xf"
+alias lookfor="grep -RIni"
+alias nani='echo "Omae wa mou shindeiru" && sleep 3s && nano'
+alias redo='sudo $(history -p !!)'
+
+
+releasemouse() {
+    setxkbmap -option grab:break_actions
+    xdotool key XF86Ungrab
+}
+
+mp3ogg() {
+    for i in *.mp3; do
+        name=`echo $i | cut -d'.' -f1`
+        echo "Converting ${name}.mp3 "
+        ffmpeg -y -i "$i" "${name}.ogg" 2> /dev/null
+    done
+    echo "Done! "
+}
+
+wavogg() {
+    for i in *.wav; do
+        name=`echo $i | cut -d'.' -f1`
+        echo "Converting ${name}.wav "
+        ffmpeg -y -i "$i" "${name}.ogg" 2> /dev/null
+    done
+    echo "Done! "
+}
+
+
+
+
+
+
+
+

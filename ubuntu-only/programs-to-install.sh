@@ -20,17 +20,36 @@ sudo dpkg --add-architecture i386
 sudo apt install -y apt-transport-https 
 sudo apt install -y dirmngr # Mono needs it 
 
+
+# Create "~/.local/bin" and put some scripts there 
+# Ubuntu adds this to $PATH as long as it exists
+
+if [ ! -d "$HOME/.local/bin" ]; then 
+    mkdir "$HOME/.local/bin" 
+fi 
+if [ -f "update.sh" ]; then 
+    cp update.sh "$HOME/.local/bin/update" 
+fi 
+if [ -d "../all-distros" ]; then 
+    cp "../all-distros/clearlogs.sh" "$HOME/.local/bin/clearlogs" 
+    cp "../all-distros/clearswap.sh" "$HOME/.local/bin/clearswap" 
+fi 
+chmod -R 775 "$HOME/.local/bin" 
+
+# Add some useful aliases if there is not currently a ".bash_aliases" file 
+
+if [ ! -f "$HOME/.bash_aliases" ]; then 
+    if [ -f "../all-distros/bash_aliases" ]; then 
+        cp bash_aliases "$HOME/.bash_aliases" 
+    fi 
+fi 
+
+
 # Mono stuff 
 
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF 
 echo "deb https://download.mono-project.com/repo/ubuntu stable-bionic main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list 
 echo "deb https://download.mono-project.com/repo/ubuntu vs-bionic main" | sudo tee /etc/apt/sources.list.d/mono-official-vs.list 
-
-# Itch stuff 
-
-wget -O - https://dl.itch.ovh/archive.key | sudo apt-key add - 
-ITCHIO_DEB="deb https://dl.bintray.com/itchio/deb xenial main" 
-echo $ITCHIO_DEB | sudo tee /etc/apt/sources.list.d/itchio.list 
 
 # Wine stuff 
 
@@ -59,10 +78,12 @@ sudo apt full-upgrade -y
 
 # These packages should be installed first 
 
-sudo apt install -y openssh-server 
+sudo apt install -y openssh-server # For accessing a computer remotely via SSH 
 sudo apt install -y vlc # Depends on a lot of *specific versions* of libraries 
 
-# Misc libraries, I recommend keeping everything here 
+# Misc libraries, I recommend keeping everything here. 
+# Many of these are already installed on Ubuntu, but we should 
+# install them manually just in case this is some other distro 
 
 sudo apt install -y curl 
 sudo apt install -y exfat-* 
@@ -78,8 +99,9 @@ sudo apt install -y libc++1
 sudo apt install -y libcap2-bin 
 sudo apt install -y libdbusmenu-gtk4 
 sudo apt install -y libdbusmenu-gtk4:i386 # Steam 
-sudo apt install -y libgnome-keyring-common
-sudo apt install -y libgnome-keyring-dev
+sudo apt install -y libgnome-keyring-common 
+sudo apt install -y libgnome-keyring-dev 
+sudo apt install -y libgtk-3-0 
 sudo apt install -y liblua5* 
 sudo apt install -y libopenal1 
 sudo apt install -y libsdl2* 
@@ -107,6 +129,14 @@ sudo rm -f gitkraken.deb
 wget -O discord.deb "https://discordapp.com/api/download?platform=linux&format=deb" 
 sudo dpkg -i discord.deb
 sudo rm -f discord.deb
+
+# Itch stuff 
+
+wget -O itch-setup nuts.itch.zone/download 
+chmod 777 itch-setup 
+./itch-setup --silent & 
+sleep 1 # We want to wait a bit to remove the file 
+sudo rm -f itch-setup 
 
 # Misc useful terminal stuff 
 
@@ -141,11 +171,9 @@ sudo apt install -y firefox
 sudo apt install -y gimp 
 sudo apt install -y libreoffice 
 
-# Games and other things that can be installed last 
+# Things that should be installed last 
 
 sudo apt install -y winehq-devel --install-recommends 
-sudo apt install -y playonlinux 
-sudo apt install -y itch 
 sudo apt install -y libdvd-pkg 
 sudo apt install -y steam 
 
