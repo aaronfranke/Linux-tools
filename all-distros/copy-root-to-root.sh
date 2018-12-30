@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 # Will attempt to look for "root" folder. 

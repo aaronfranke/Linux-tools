@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 cd "$HOME/.steam/ubuntu12_32/steam-runtime/i386/usr/lib/i386-linux-gnu"

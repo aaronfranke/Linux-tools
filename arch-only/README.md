@@ -5,6 +5,8 @@ A few Linux tools and useful scripts
 
 
 
+PLEASE NOTE THAT THIS FOLDER IS NOT ACTIVELY TESTED! Use at your own risk.
+
 A description of each file: 
 
 update.sh - Updates the system completely. Also removes log files. 
