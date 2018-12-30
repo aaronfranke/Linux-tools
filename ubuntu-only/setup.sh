@@ -39,7 +39,7 @@ chmod -R 775 "$HOME/.local/bin"
 
 if [ ! -f "$HOME/.bash_aliases" ]; then 
     if [ -f "../all-distros/bash_aliases" ]; then 
-        cp bash_aliases "$HOME/.bash_aliases" 
+        cp "../all-distros/bash_aliases" "$HOME/.bash_aliases" 
     fi 
 fi 
 
@@ -62,6 +62,7 @@ sudo sed -i -e 's/scope = 1/scope = 0/g' /etc/sysctl.d/10-ptrace.conf
 
 sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer 
 sudo add-apt-repository -y ppa:notepadqq-team/notepadqq 
+sudo add-apt-repository -y ppa:graphics-drivers # Nvidia 
 
 # Get rid of all existing Snap apps. WARNING: This is meant for new installs only! 
 
@@ -117,6 +118,12 @@ sudo apt install -y build-essential
 sudo apt install -y cmake 
 sudo apt install -y git 
 
+# Itch stuff 
+
+wget -O itch-setup nuts.itch.zone/download 
+chmod 777 itch-setup 
+./itch-setup --silent & 
+
 # GitKraken stuff 
 
 wget -O gitkraken.deb "https://release.gitkraken.com/linux/gitkraken-amd64.deb" 
@@ -128,14 +135,6 @@ sudo rm -f gitkraken.deb
 wget -O discord.deb "https://discordapp.com/api/download?platform=linux&format=deb" 
 sudo dpkg -i discord.deb
 sudo rm -f discord.deb
-
-# Itch stuff 
-
-wget -O itch-setup nuts.itch.zone/download 
-chmod 777 itch-setup 
-./itch-setup --silent & 
-sleep 1 # We want to wait a bit to remove the file 
-sudo rm -f itch-setup 
 
 # Misc useful terminal stuff 
 
@@ -175,6 +174,7 @@ sudo apt install -y libreoffice
 sudo apt install -y winehq-devel --install-recommends 
 sudo apt install -y libdvd-pkg 
 sudo apt install -y steam 
+sudo rm -f itch-setup # We want to wait a bit to remove the file 
 
 # Finish with updates, this time update certs too 
 
