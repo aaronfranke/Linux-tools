@@ -1,7 +1,7 @@
  
 # Linux-tools 
 
-A few Linux tools and useful scripts. I highly recommend checking out `programs-to-install.sh`.
+A few Linux tools and useful scripts. I highly recommend checking out `ubuntu-only/setup.sh`.
 
 
 

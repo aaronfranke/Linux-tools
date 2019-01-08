@@ -7,19 +7,27 @@ A few Linux tools and useful scripts
 
 A description of each file: 
 
-xfceclock.txt - My preferred clock layout, for XFCE's clock. Similar to ISO-8601.
+autoscan.sh - Automatically scans a network printer into a folder. Requires you to specify your printer's address. 
+
+bash_aliases - To be copied to `~/.bash_aliases` if there is not one already present. 
 
 clearlogs.sh - Removes log files in the /var/log folder. Saves some disk space. 
 
-clsw.sh - Clears swap, by turning it off, then turning it back on. This puts swap back into RAM. 
+clearswap.sh - Clears swap, by turning it off, then turning it back on. This puts swap back into RAM. 
+
+copy-root-to-root.sh - Copies the "root" folder to `/`. It contains some shortcuts and minor XFCE tweaks. 
 
 crash.sh - Crashes the system using a fork bomb. Not actually useful, just for fun. 
 
-fix-vmware.sh - Fixes a problem in VMware that prevents the list of VMs from loading properly. 
+dolphin-\*.sh - Causes the mouse to act as a joystick, so you can use the mouse input as joystick input. 
 
-netflix.sh - Launches Netflix in a fullscreen window. Note: Google Chrome is required. 
+fix-network.sh - Restarts the network service, useful whenever a network adapter breaks (rarely). 
 
-network.sh - Resets the network service, useful whenever a network adapter breaks (rarely). 
+fix-steam-6520g.sh - Fixes a problem with Steam not starting on laptops with an AMD Radeon 6520G GPU. 
+
+fix-vmware-make.sh - I had trouble with VMware, I found this script on Arch forums, no idea how it works. 
+
+xfceclock.txt - My preferred clock layout, for XFCE's clock. Similar to ISO-8601. 
 
 
 

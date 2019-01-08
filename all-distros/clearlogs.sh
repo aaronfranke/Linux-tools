@@ -1,8 +1,6 @@
 #!/bin/bash
 
-sudo rm -R /var/log/* 
-
-sudo mkdir /var/log/apt 
+sudo find /var/log/* -type f -delete
 
 echo " " 
 echo "Logs have been removed! " 

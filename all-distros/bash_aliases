@@ -6,6 +6,7 @@ alias butler="$HOME/.config/itch/apps/butler/butler"
 alias extract="tar -xf"
 alias lookfor="grep -RIni"
 alias nani='echo "Omae wa mou shindeiru" && sleep 3s && nano'
+alias fuck='sudo $(history -p !!)'
 alias redo='sudo $(history -p !!)'
 
 
