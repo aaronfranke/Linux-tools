@@ -52,11 +52,11 @@ echo "deb https://download.mono-project.com/repo/ubuntu vs-bionic main" | sudo t
 
 # Wine stuff 
 
-wget https://dl.winehq.org/wine-builds/Release.key 
-sudo apt-key add Release.key 
-sudo rm -f Release.key 
-sudo apt-add-repository -y https://dl.winehq.org/wine-builds/ubuntu/ 
-sudo sed -i -e 's/scope = 1/scope = 0/g' /etc/sysctl.d/10-ptrace.conf
+wget -nc https://dl.winehq.org/wine-builds/winehq.key 
+sudo apt-key add winehq.key 
+sudo rm -f winehq.key 
+sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main' 
+sudo sed -i -e 's/scope = 1/scope = 0/g' /etc/sysctl.d/10-ptrace.conf 
 
 # Other repos 
 
