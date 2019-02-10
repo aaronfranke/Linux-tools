@@ -3,14 +3,12 @@
 # These aliases and functions have been added by aaronfranke's Linux-tools
 
 alias butler="$HOME/.config/itch/apps/butler/butler"
+alias cstabs="find . -name '*.cs' -exec sed -i -e 's/    /\t/g' {} \;"
 alias extract="tar -xf"
 alias lookfor="grep -RIni"
 alias nani='echo "Omae wa mou shindeiru" && sleep 3s && nano'
 alias fuck='sudo $(history -p !!)'
 alias redo='sudo $(history -p !!)'
-
-alias wavogg="for i in *.wav; do name=\`echo \$i | cut -d'.' -f1\`; echo \$name; ffmpeg -i \"\$i\" \"\${name}.ogg\"; done"
-alias mp3ogg="for i in *.mp3; do name=\`echo \$i | cut -d'.' -f1\`; echo \$name; ffmpeg -i \"\$i\" \"\${name}.ogg\"; done"
 
 releasemouse() {
     setxkbmap -option grab:break_actions
