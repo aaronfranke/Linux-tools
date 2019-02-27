@@ -33,6 +33,14 @@ wavogg() {
     echo "Done! "
 }
 
+webmopus() {
+    for i in *.webm; do
+        name=`echo $i | cut -d'.' -f1`
+        echo "Converting ${name}.webm "
+        ffmpeg -y -i "$i" -vn -c:a copy "${name}.opus" 2> /dev/null
+    done
+    echo "Done! "
+}
 
 
 
