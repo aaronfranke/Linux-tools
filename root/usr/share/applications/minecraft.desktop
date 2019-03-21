@@ -1,7 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Type=Application
-Name=Minecraft
-Icon=/usr/share/icons/mc.png
-Exec=sh -c 'java -Xss2M -jar ~/.minecraft/launcher.jar'
-Categories=Game;

@@ -15,8 +15,6 @@ clearlogs.sh - Removes log files in the /var/log folder. Saves some disk space.
 
 clearswap.sh - Clears swap, by turning it off, then turning it back on. This puts swap back into RAM. 
 
-copy-root-to-root.sh - Copies the "root" folder to `/`. It contains some shortcuts and minor XFCE tweaks. 
-
 crash.sh - Crashes the system using a fork bomb. Not actually useful, just for fun. 
 
 dolphin-\*.sh - Causes the mouse to act as a joystick, so you can use the mouse input as joystick input. 
