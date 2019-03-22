@@ -1,10 +1,10 @@
 #!/bin/bash 
 
-echo " " 
+echo 
 echo "Note: This script is designed for new installs of Ubuntu 18.04 and flavors. " 
 echo "If you already have a system with lots of custom repos, things may conflict. " 
 echo "This script will execute in a few seconds unless you press Ctrl+Z to exit. " 
-echo " " 
+echo 
 sudo sleep 10 # "sudo" before sleep elevates this script to sudo priviliges after the password prompt 
 
 # Start with updates 
@@ -183,10 +183,10 @@ sudo apt update
 sudo apt upgrade -y 
 sudo apt full-upgrade -y 
 
-echo " " 
+echo 
 echo "Successfully installed the programs! " 
 echo "You may wish to reboot your system now. " 
-echo " " 
+echo 
 
 
 

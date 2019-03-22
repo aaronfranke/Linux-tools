@@ -59,10 +59,10 @@ sudo pacman -Syu --noconfirm
 
 yaourt -S yaourt-gui 
 
-echo " " 
+echo 
 echo "Successfully installed yaourt and the AUR! " 
 echo "You may wish to reboot your system now. " 
-echo " " 
+echo 
 
 
 

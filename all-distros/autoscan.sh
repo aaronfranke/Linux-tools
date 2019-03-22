@@ -22,22 +22,22 @@ if [ ! -f /usr/bin/mogrify ]; then
     exit 2
 fi
 
-echo " "
+echo
 echo "Computer will start automatically scanning in a few seconds... "
 SLTIME=$(($TIME-5))
 sleep 5
 
 while true; do
     FILENAME=$(mktemp -u XXXXXX)
-    echo " "
+    echo
     echo "Scanning and saving to $FILENAME.$FORMAT... "
     scanimage -d $PRINTER --mode Color --resolution $QUALITY --format tiff > $FILENAME.tiff 2>/dev/null
     mogrify -format $FORMAT $FILENAME.tiff
     rm $FILENAME.tiff
-    echo " "
+    echo
     echo "Done scanning $FILENAME.$FORMAT, waiting $TIME seconds for next scan... "
     sleep $SLTIME
-    echo " "
+    echo
     echo "5... "
     sleep 1
     echo "4... "

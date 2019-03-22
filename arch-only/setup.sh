@@ -54,10 +54,10 @@ sudo pacman -S --noconfirm firefox
 
 pacman -Syu --noconfirm 
 
-echo " " 
+echo 
 echo "Successfully installed the programs! " 
 echo "You may wish to reboot your system now. " 
-echo " " 
+echo 
 
 
 
