@@ -5,6 +5,8 @@
 alias butler="$HOME/.config/itch/apps/butler/butler"
 alias cstabs="find . -name '*.cs' -exec sed -i -e 's/    /\t/g' {} \;"
 alias extract="tar -xf"
+alias la="ls -la"
+alias ll="ls -l"
 alias lookfor="grep -RIni"
 alias nani='echo "Omae wa mou shindeiru" && sleep 3s && nano'
 alias fuck='sudo $(history -p !!)'
@@ -24,10 +26,37 @@ mp3ogg() {
     echo "Done! "
 }
 
+m4aogg() {
+    for i in *.m4a; do
+        name=`echo $i | cut -d'.' -f1`
+        echo "Converting ${name}.m4a "
+        ffmpeg -y -i "$i" "${name}.ogg" 2> /dev/null
+    done
+    echo "Done! "
+}
+
+mkvogg() {
+    for i in *.mkv; do
+        name=`echo $i | cut -d'.' -f1`
+        echo "Converting ${name}.mkv "
+        ffmpeg -y -i "$i" -vn "${name}.ogg" 2> /dev/null
+    done
+    echo "Done! "
+}
+
 wavogg() {
     for i in *.wav; do
         name=`echo $i | cut -d'.' -f1`
         echo "Converting ${name}.wav "
+        ffmpeg -y -i "$i" "${name}.ogg" 2> /dev/null
+    done
+    echo "Done! "
+}
+
+opusogg() {
+    for i in *.opus; do
+        name=`echo $i | cut -d'.' -f1`
+        echo "Converting ${name}.opus "
         ffmpeg -y -i "$i" "${name}.ogg" 2> /dev/null
     done
     echo "Done! "
