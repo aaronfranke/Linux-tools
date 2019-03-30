@@ -71,6 +71,16 @@ webmopus() {
     echo "Done! "
 }
 
+stripogg() {
+    for i in *.ogg; do
+        name=`echo $i | cut -d'.' -f1`
+        echo "Stripping audio from ${name}.ogg "
+        ffmpeg -y -i "$i" -vn -codec:a copy -map_metadata -1 "${name}.tmp.ogg" 2> /dev/null
+        rm -f "$i"
+        mv "${name}.tmp.ogg" "$i"
+    done
+    echo "Done! "
+}
 
 
 
