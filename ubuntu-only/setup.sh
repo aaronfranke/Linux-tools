@@ -140,6 +140,7 @@ sudo rm -f discord.deb
 
 sudo apt install -y cmatrix 
 sudo apt install -y cowsay 
+sudo apt install -y dcfldd 
 sudo apt install -y ffmpeg 
 sudo apt install -y fortune-mod 
 sudo apt install -y htop 
