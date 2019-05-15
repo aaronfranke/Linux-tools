@@ -109,6 +109,10 @@ sudo apt install -y libsdl-ttf*
 sudo apt install -y libtcmalloc-minimal4 # Portal 2 
 sudo apt install -y mono-complete 
 sudo apt install -y openjdk-8-jre 
+sudo apt install -y python-minimal # GitKraken 
+sudo apt install -y python 
+sudo apt install -y python3 
+sudo apt install -y python3-gpg # Dropbox 
 sudo apt install -y vulkan-utils 
 sudo apt install -y x264 
 
@@ -174,6 +178,7 @@ sudo apt install -y libreoffice
 
 sudo apt install -y winehq-devel --install-recommends 
 sudo apt install -y libdvd-pkg 
+sudo dpkg-reconfigure libdvd-pkg 
 sudo apt install -y steam 
 sudo rm -f itch-setup # We want to wait a bit to remove the file 
 
