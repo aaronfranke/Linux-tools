@@ -36,7 +36,7 @@ if [ ! -f /usr/bin/scons ]; then
     elif [ -f /usr/bin/pacman ]; then
         echo "We detected you're on Arch, type your password to install required libs: "
         sudo pacman -S scons libxcursor libxinerama libxi libxrandr mesa glu alsa-lib pulseaudio freetype2 yasm
-    elif [ -f /usr/bin/pacman ]; then
+    elif [ -f /usr/bin/dnf ]; then
         echo "We detected you're on Fedora, type your password to install required libs: "
         sudo dnf install scons pkgconfig libX11-devel libXcursor-devel libXrandr-devel libXinerama-devel \
             libXi-devel mesa-libGL-devel alsa-lib-devel pulseaudio-libs-devel freetype-devel openssl-devel \
@@ -57,7 +57,7 @@ if [ ! -f /usr/bin/nuget ]; then
     elif [ -f /usr/bin/pacman ]; then
         echo "We detected you're on Arch, type your password to install required libs: "
         sudo pacman -S mono-complete nuget
-    elif [ -f /usr/bin/pacman ]; then
+    elif [ -f /usr/bin/dnf ]; then
         echo "We detected you're on Fedora, type your password to install required libs: "
         sudo dnf install mono-complete nuget
     fi
@@ -79,7 +79,7 @@ echo "Building Godot from $(pwd) ..."
 
 rm -Rf ./bin/* # Remove previously built binaries
 
-rm -f /home/aaronfranke/workspace/godot/modules/mono/glue/mono_glue.gen.cpp # Neikeq's fault
+rm -f modules/mono/glue/mono_glue.gen.cpp # Neikeq's fault
 
 # Actually begin the build process here:
 

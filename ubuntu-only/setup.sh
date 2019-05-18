@@ -55,7 +55,8 @@ echo "deb https://download.mono-project.com/repo/ubuntu vs-bionic main" | sudo t
 wget -nc https://dl.winehq.org/wine-builds/winehq.key 
 sudo apt-key add winehq.key 
 sudo rm -f winehq.key 
-sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main' 
+sudo add-apt-repository -y 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main' 
+sudo add-apt-repository -y 'ppa:cybermax-dexter/sdl2-backport' # Consider removing in future 
 sudo sed -i -e 's/scope = 1/scope = 0/g' /etc/sysctl.d/10-ptrace.conf 
 
 # Other repos 
@@ -99,6 +100,7 @@ sudo apt install -y libc++1
 sudo apt install -y libcap2-bin 
 sudo apt install -y libdbusmenu-gtk4 
 sudo apt install -y libdbusmenu-gtk4:i386 # Steam 
+sudo apt install -y libfaudio0 # Wine 
 sudo apt install -y libgnome-keyring-common 
 sudo apt install -y libgnome-keyring-dev 
 sudo apt install -y libgtk-3-0 

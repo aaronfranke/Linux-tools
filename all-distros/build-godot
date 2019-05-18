@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # rebuild-godot - A simple script to build Godot.
-# Ideally the Mono build process will be eventually simplified so the last four lines can be two.
 
 # Are we in or can we find the Godot directory? Otherwise, go to ~/workspace/godot
 if [ ! -d "core/math" ]; then
@@ -36,7 +35,7 @@ if [ ! -f /usr/bin/scons ]; then
     elif [ -f /usr/bin/pacman ]; then
         echo "We detected you're on Arch, type your password to install required libs: "
         sudo pacman -S scons libxcursor libxinerama libxi libxrandr mesa glu alsa-lib pulseaudio freetype2 yasm
-    elif [ -f /usr/bin/pacman ]; then
+    elif [ -f /usr/bin/dnf ]; then
         echo "We detected you're on Fedora, type your password to install required libs: "
         sudo dnf install scons pkgconfig libX11-devel libXcursor-devel libXrandr-devel libXinerama-devel \
             libXi-devel mesa-libGL-devel alsa-lib-devel pulseaudio-libs-devel freetype-devel openssl-devel \
