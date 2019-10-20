@@ -8,7 +8,7 @@ export GPG_TTY=$(tty)
 # Aliases for simple common commands
 alias butler="$HOME/.config/itch/apps/butler/butler"
 alias cstabs="find . -name '*.cs' -exec sed -i -e 's/    /\t/g' {} \;"
-alias gdedit="find . -name '*.tscn' -exec sed -i '/^editor\//d' {} \;" # Remove "editor/display_folded"
+alias tscnnoeditor="find . -name '*.tscn' -exec sed -i '/^editor\//d' {} \;" # Remove "editor/display_folded"
 alias extract="tar -xf"
 alias la="ls -la"
 alias ll="ls -l"
