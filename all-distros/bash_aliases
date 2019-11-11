@@ -19,6 +19,10 @@ alias redo='sudo $(history -p !!)'
 alias sdd="sudo dcfldd" # Replaces "sudo dd", requires "dcfldd" to be installed.
 
 # Functions for more complex operations. Most are just for mass-converting audio.
+recursive() {
+    find . -type f -exec "$*" {} \;
+}
+
 replaceall() {
     find . -name "*.$1" -exec sed -i -e "s/$2/$3/g" {} \;
 }
