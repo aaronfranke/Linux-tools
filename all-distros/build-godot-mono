@@ -71,7 +71,7 @@ fi
 
 # If running an old version of Ubuntu, Mono might be outdated. Redirect users to manual instructions, as instructions differ per OS and version.
 MONOVER=$(mono --version | head -n 1 | sed 's@^[^0-9]*\([0-9]\+\).*@\1@')
-if [ "$MONOVER" -lt "5" ]; then
+if [ "$MONOVER" -lt "6" ]; then
     echo "Error: The installed version of Mono is too old. Can't build. "
     echo "Please visit this website for more information: https://www.mono-project.com/download/stable/. "
     exit 5
