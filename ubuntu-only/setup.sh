@@ -103,12 +103,14 @@ sudo apt install -y libdbusmenu-gtk4:i386 # Steam
 sudo apt install -y libfaudio0 # Wine 
 sudo apt install -y libgnome-keyring-common 
 sudo apt install -y libgnome-keyring-dev 
+sudo apt install -y libgtk2.0-0:i386 # Steam controller
 sudo apt install -y libgtk-3-0 
 sudo apt install -y liblua5* 
 sudo apt install -y libopenal1 
-sudo apt install -y libsdl2* 
+sudo apt install -y libsdl2* # Misc Steam games
 sudo apt install -y libsdl-ttf* 
 sudo apt install -y libtcmalloc-minimal4 # Portal 2 
+sudo apt install -y libxtst6:i386 # Steam controller
 sudo apt install -y mono-complete 
 sudo apt install -y openjdk-8-jre 
 sudo apt install -y python-minimal # GitKraken 
