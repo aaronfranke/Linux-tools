@@ -19,6 +19,15 @@ alias redo='sudo $(history -p !!)'
 alias sdd="sudo dcfldd" # Replaces "sudo dd", requires "dcfldd" to be installed.
 
 # Functions for more complex operations. Most are just for mass-converting audio.
+acid() {
+    NUMBER=1.0
+    while true; do
+        NUMBER=$(echo "($NUMBER + 2.99) % 10 - 3" | bc)
+        sleep 0.01
+        xrandr --output LVDS --brightness $NUMBER
+    done
+}
+
 recursive() {
     find . -type f -exec "$*" {} \;
 }
