@@ -28,6 +28,10 @@ acid() {
     done
 }
 
+format() {
+    find . -regex '.*\.\(cpp\|hpp\|cc\|cxx\)' -exec clang-format -style=file -i {} \;
+}
+
 recursive() {
     find . -type f -exec "$*" {} \;
 }
