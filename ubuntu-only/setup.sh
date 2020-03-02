@@ -86,11 +86,11 @@ sudo apt install -y vlc # Depends on a lot of *specific versions* of libraries
 # Many of these are already installed on Ubuntu, but we should 
 # install them manually just in case this is some other distro 
 
+sudo apt install -y cpp 
 sudo apt install -y curl 
 sudo apt install -y exfat-* 
 sudo apt install -y flac 
-sudo apt install -y gconf2 
-sudo apt install -y gvfs-bin 
+sudo apt install -y gcc g++ 
 sudo apt install -y lame 
 sudo apt install -y lib32z1
 sudo apt install -y lib32ncurses5 
@@ -101,6 +101,7 @@ sudo apt install -y libcap2-bin
 sudo apt install -y libdbusmenu-gtk4 
 sudo apt install -y libdbusmenu-gtk4:i386 # Steam 
 sudo apt install -y libfaudio0 # Wine 
+sudo apt install -y libglib2.0-0 
 sudo apt install -y libgnome-keyring-common 
 sudo apt install -y libgnome-keyring-dev 
 sudo apt install -y libgtk2.0-0:i386 # Steam controller
