@@ -59,10 +59,15 @@ sudo add-apt-repository -y 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic
 sudo add-apt-repository -y 'ppa:cybermax-dexter/sdl2-backport' # Consider removing in future 
 sudo sed -i -e 's/scope = 1/scope = 0/g' /etc/sysctl.d/10-ptrace.conf 
 
+# VS Code stuff
+
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/
+sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+
 # Other repos 
 
 sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer 
-sudo add-apt-repository -y ppa:notepadqq-team/notepadqq 
 sudo add-apt-repository -y ppa:graphics-drivers # Nvidia 
 
 # Get rid of all existing Snap apps. WARNING: This is meant for new installs only! 
@@ -169,12 +174,12 @@ sudo apt install -y gparted
 sudo apt install -y grub-customizer 
 sudo apt install -y psensor 
 sudo apt install -y pcmanfm 
-sudo apt install -y notepadqq 
 sudo apt install -y qbittorrent 
 
 # Large useful GUI programs 
 
 sudo apt install -y chromium-browser 
+sudo apt install -y code 
 sudo apt install -y firefox 
 sudo apt install -y gimp 
 sudo apt install -y libreoffice 
@@ -198,8 +203,3 @@ echo
 echo "Successfully installed the programs! " 
 echo "You may wish to reboot your system now. " 
 echo 
-
-
-
-
-
