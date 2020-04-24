@@ -1,7 +1,7 @@
 #!/bin/bash 
 
 echo 
-echo "Note: This script is designed for new installs of Ubuntu 18.04 and flavors. " 
+echo "Note: This script is designed for new installs of Ubuntu 20.04 and flavors. " 
 echo "If you already have a system with lots of custom repos, things may conflict. " 
 echo "This script will execute in a few seconds unless you press Ctrl+Z to exit. " 
 echo 
@@ -17,7 +17,9 @@ sudo apt full-upgrade -y
 
 sudo dpkg --add-architecture i386 
 sudo apt install -y apt-transport-https 
+sudo apt install- y ca-certificates # Mono needs it 
 sudo apt install -y dirmngr # Mono needs it 
+sudo apt install- y gnupg # Mono needs it 
 
 
 # Create "~/.local/bin" and put some scripts there 
@@ -47,28 +49,24 @@ fi
 # Mono stuff 
 
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF 
-echo "deb https://download.mono-project.com/repo/ubuntu stable-bionic main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list 
-echo "deb https://download.mono-project.com/repo/ubuntu vs-bionic main" | sudo tee /etc/apt/sources.list.d/mono-official-vs.list 
+echo "deb https://download.mono-project.com/repo/ubuntu stable-focal main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list 
+echo "deb https://download.mono-project.com/repo/ubuntu vs-focal main" | sudo tee /etc/apt/sources.list.d/mono-official-vs.list 
 
 # Wine stuff 
 
 wget -nc https://dl.winehq.org/wine-builds/winehq.key 
 sudo apt-key add winehq.key 
 sudo rm -f winehq.key 
-sudo add-apt-repository -y 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main' 
+#sudo add-apt-repository -y 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main' 
 sudo add-apt-repository -y 'ppa:cybermax-dexter/sdl2-backport' # Consider removing in future 
 sudo sed -i -e 's/scope = 1/scope = 0/g' /etc/sysctl.d/10-ptrace.conf 
 
 # VS Code stuff
 
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+wget -O - https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
 sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/
 sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
-
-# Other repos 
-
-sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer 
-sudo add-apt-repository -y ppa:graphics-drivers # Nvidia 
+sudo rm -f packages.microsoft.gpg
 
 # Get rid of all existing Snap apps. WARNING: This is meant for new installs only! 
 
@@ -93,33 +91,33 @@ sudo apt install -y vlc # Depends on a lot of *specific versions* of libraries
 
 sudo apt install -y cpp 
 sudo apt install -y curl 
-sudo apt install -y exfat-* 
+sudo apt install -y exfat-utils 
 sudo apt install -y flac 
 sudo apt install -y gcc g++ 
+sudo apt install -y gconf-service # GitKraken
+sudo apt install -y gconf2 # GitKraken
 sudo apt install -y lame 
 sudo apt install -y lib32z1
-sudo apt install -y lib32ncurses5 
 sudo apt install -y lib32stdc++6 
-sudo apt install -y libappindicator1 
+sudo apt install -y libappindicator1 # Chrome
 sudo apt install -y libc++1 
 sudo apt install -y libcap2-bin 
 sudo apt install -y libdbusmenu-gtk4 
-sudo apt install -y libdbusmenu-gtk4:i386 # Steam 
 sudo apt install -y libfaudio0 # Wine 
 sudo apt install -y libglib2.0-0 
-sudo apt install -y libgnome-keyring-common 
-sudo apt install -y libgnome-keyring-dev 
 sudo apt install -y libgtk2.0-0:i386 # Steam controller
 sudo apt install -y libgtk-3-0 
-sudo apt install -y liblua5* 
+sudo apt install -y libindicator7 # Chrome
 sudo apt install -y libopenal1 
-sudo apt install -y libsdl2* # Misc Steam games
-sudo apt install -y libsdl-ttf* 
+sudo apt install -y libsdl2-2.0-0 # Misc Steam games
+sudo apt install -y libsdl2-ttf-2.0-0 
+sudo apt install -y libsdl-ttf2.0-0 
 sudo apt install -y libtcmalloc-minimal4 # Portal 2 
+sudo apt install -y libxss1 # Chrome
 sudo apt install -y libxtst6:i386 # Steam controller
 sudo apt install -y mono-complete 
 sudo apt install -y openjdk-8-jre 
-sudo apt install -y python-minimal # GitKraken 
+sudo apt install -y python2-minimal # GitKraken 
 sudo apt install -y python 
 sudo apt install -y python3 
 sudo apt install -y python3-gpg # Dropbox 
@@ -150,6 +148,12 @@ wget -O discord.deb "https://discordapp.com/api/download?platform=linux&format=d
 sudo dpkg -i discord.deb
 sudo rm -f discord.deb
 
+# Chrome stuff 
+
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install -y ./google-chrome-stable_current_amd64.deb
+sudo rm -f google-chrome-stable_current_amd64.deb
+
 # Misc useful terminal stuff 
 
 sudo apt install -y cmatrix 
@@ -178,7 +182,6 @@ sudo apt install -y qbittorrent
 
 # Large useful GUI programs 
 
-sudo apt install -y chromium-browser 
 sudo apt install -y code 
 sudo apt install -y firefox 
 sudo apt install -y gimp 
@@ -186,7 +189,7 @@ sudo apt install -y libreoffice
 
 # Things that should be installed last 
 
-sudo apt install -y winehq-devel --install-recommends 
+sudo apt install -y wine-development --install-recommends 
 sudo apt install -y libdvd-pkg 
 sudo dpkg-reconfigure libdvd-pkg 
 sudo apt install -y steam 
