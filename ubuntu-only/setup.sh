@@ -186,6 +186,7 @@ sudo apt install -y gnome-software
 sudo apt install -y gnome-system-monitor 
 sudo apt install -y gparted 
 sudo apt install -y grub-customizer 
+sudo apt install -y menulibre 
 sudo apt install -y psensor 
 sudo apt install -y pcmanfm 
 sudo apt install -y qbittorrent 
