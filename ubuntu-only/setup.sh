@@ -169,11 +169,20 @@ sudo apt install -y neofetch
 sudo apt install -y pv 
 sudo apt install -y youtube-dl 
 
+# GNOME stuff
+
+if [ -f "/usr/bin/gnome-shell" ]; then 
+    sudo apt install -y chrome-gnome-shell 
+    sudo apt install -y gnome-shell-extensions 
+    sudo apt install -y gnome-tweak-tool 
+fi 
+
 # Small useful GUI programs 
 
 sudo apt install -y baobab 
 sudo apt install -y dconf-editor 
 sudo apt install -y engrampa 
+sudo apt install -y gnome-software 
 sudo apt install -y gnome-system-monitor 
 sudo apt install -y gparted 
 sudo apt install -y grub-customizer 
