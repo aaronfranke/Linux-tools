@@ -116,6 +116,7 @@ sudo apt install -y libtcmalloc-minimal4 # Portal 2
 sudo apt install -y libxss1 # Chrome
 sudo apt install -y libxtst6:i386 # Steam controller
 sudo apt install -y mono-complete 
+sudo apt install -y net-tools # ifconfig
 sudo apt install -y openjdk-8-jre 
 sudo apt install -y python2-minimal # GitKraken 
 sudo apt install -y python 

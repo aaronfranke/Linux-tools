@@ -74,6 +74,7 @@ sudo apt install -y lib32stdc++6
 sudo apt install -y libc++1 
 sudo apt install -y libcap2-bin 
 sudo apt install -y libglib2.0-0 
+sudo apt install -y net-tools # ifconfig
 sudo apt install -y python3 
 
 # Developer tools, useful for everyone, ex: for compiling software 
