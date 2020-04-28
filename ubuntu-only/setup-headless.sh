@@ -16,9 +16,9 @@ sudo apt full-upgrade -y
 # Important stuff that should be done first 
 
 sudo apt install -y apt-transport-https 
-sudo apt install- y ca-certificates # Mono needs it 
+sudo apt install -y ca-certificates # Mono needs it 
 sudo apt install -y dirmngr # Mono needs it 
-sudo apt install- y gnupg # Mono needs it 
+sudo apt install -y gnupg # Mono needs it 
 
 
 # Create "~/.local/bin" and put some scripts there 
