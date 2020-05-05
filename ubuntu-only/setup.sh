@@ -57,7 +57,7 @@ echo "deb https://download.mono-project.com/repo/ubuntu vs-focal main" | sudo te
 wget -nc https://dl.winehq.org/wine-builds/winehq.key 
 sudo apt-key add winehq.key 
 sudo rm -f winehq.key 
-#sudo add-apt-repository -y 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main' 
+sudo add-apt-repository -y 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main' 
 sudo add-apt-repository -y 'ppa:cybermax-dexter/sdl2-backport' # Consider removing in future 
 sudo sed -i -e 's/scope = 1/scope = 0/g' /etc/sysctl.d/10-ptrace.conf 
 
@@ -200,7 +200,7 @@ sudo apt install -y libreoffice
 
 # Things that should be installed last 
 
-sudo apt install -y wine-development --install-recommends 
+sudo apt install -y --install-recommends winehq-devel 
 sudo apt install -y libdvd-pkg 
 sudo dpkg-reconfigure libdvd-pkg 
 sudo apt install -y steam 
