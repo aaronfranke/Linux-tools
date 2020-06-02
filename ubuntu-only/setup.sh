@@ -68,10 +68,9 @@ sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/
 sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 sudo rm -f packages.microsoft.gpg
 
-# Get rid of all existing Snap apps. WARNING: This is meant for new installs only! 
+# Purge Snap. WARNING: Also removes all snap apps! 
 
 sudo apt purge -y snapd 
-sudo apt install -y snapd 
 
 # More updates 
 
