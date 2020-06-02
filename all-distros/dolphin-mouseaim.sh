@@ -9,5 +9,3 @@ while true; do
     xdotool mousemove 960 540
     sleep 0.08
 done
-
-

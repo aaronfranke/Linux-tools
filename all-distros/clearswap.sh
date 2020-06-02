@@ -1,14 +1,11 @@
-#!/bin/bash 
+#!/bin/bash
 
-sudo swapoff -a 
+sudo swapoff -a
 
-sudo swapon -a 
+sudo swapon -a
 
-sudo swapon -a 
+sudo swapon -a
 
-echo 
-echo "Swap has been emptied! " 
-echo 
-
-
-
+echo
+echo "Swap has been emptied! "
+echo

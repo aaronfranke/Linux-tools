@@ -2,7 +2,3 @@
 Hover: %A, %eth of %B
 
 Clock: %a, %Y-%b-%d, %I:%M %p
-
-
-
-

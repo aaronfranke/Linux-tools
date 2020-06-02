@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 
 # NOTE: I have had many Arch users tell me "yaourt bad", use at your own risk!
 
@@ -19,56 +19,47 @@ mkdir aur_temp
 
 cd aur_temp
 
-pacman -Syu --noconfirm 
+pacman -Syu --noconfirm
 
-pacman -S --noconfirm sudo 
+pacman -S --noconfirm sudo
 
-sudo pacman -Syu --noconfirm 
+sudo pacman -Syu --noconfirm
 
-sudo pacman -S --noconfirm binutils 
-sudo pacman -S --noconfirm glib2 
-sudo pacman -S --noconfirm gcc 
-sudo pacman -S --noconfirm cmake 
+sudo pacman -S --noconfirm binutils
+sudo pacman -S --noconfirm glib2
+sudo pacman -S --noconfirm gcc
+sudo pacman -S --noconfirm cmake
 sudo pacman -S --noconfirm wget
-sudo pacman -S --noconfirm git 
-sudo pacman -S --noconfirm base-devel 
+sudo pacman -S --noconfirm git
+sudo pacman -S --noconfirm base-devel
 
-sudo git clone https://aur.archlinux.org/package-query.git 
-sudo chown -R $(whoami) package-query/ 
-sudo chmod -R 7777 package-query/ 
-cd package-query 
+sudo git clone https://aur.archlinux.org/package-query.git
+sudo chown -R $(whoami) package-query/
+sudo chmod -R 7777 package-query/
+cd package-query
 makepkg -si --noconfirm
 
-cd .. 
+cd ..
 
-sudo git clone https://aur.archlinux.org/yaourt.git 
-sudo chown -R $(whoami) yaourt/ 
-sudo chmod 7777 -R yaourt/ 
-cd yaourt 
+sudo git clone https://aur.archlinux.org/yaourt.git
+sudo chown -R $(whoami) yaourt/
+sudo chmod 7777 -R yaourt/
+cd yaourt
 makepkg -si --noconfirm
 
 echo "NOCONFIRM=1" >> ~/.yaourtrc
 echo "BUILD_NOCONFIRM=1" >> ~/.yaourtrc
 echo "EDITFILES=0" >> ~/.yaourtrc
 
-cd ../.. 
+cd ../..
 
 sudo rm -R aur_temp
 
-sudo pacman -Syu --noconfirm 
+sudo pacman -Syu --noconfirm
 
-yaourt -S yaourt-gui 
+yaourt -S yaourt-gui
 
-echo 
-echo "Successfully installed yaourt and the AUR! " 
-echo "You may wish to reboot your system now. " 
-echo 
-
-
-
-
-
-
-
-
-
+echo
+echo "Successfully installed yaourt and the AUR! "
+echo "You may wish to reboot your system now. "
+echo
