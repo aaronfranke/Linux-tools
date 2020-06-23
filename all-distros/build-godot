@@ -52,7 +52,7 @@ echo "Building Godot from $(pwd) ..."
 
 rm -Rf ./bin/godot.* # Remove previously built binaries
 
-# Actually begin the build process here: 
+# Actually begin the build process here:
 
 scons -j6 p=x11 tools=yes
 
