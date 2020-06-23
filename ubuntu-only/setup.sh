@@ -88,6 +88,8 @@ sudo apt install -y vlc # Depends on a lot of *specific versions* of libraries
 # Many of these are already installed on Ubuntu, but we should
 # install them manually just in case this is some other distro
 
+sudo apt install -y clang
+sudo apt install -y cmake
 sudo apt install -y cpp
 sudo apt install -y curl
 sudo apt install -y exfat-utils
@@ -101,16 +103,19 @@ sudo apt install -y lib32stdc++6
 sudo apt install -y libappindicator1 # Chrome
 sudo apt install -y libc++1
 sudo apt install -y libcap2-bin
+sudo apt install -y libcurl4-openssl-dev # Dotnet
 sudo apt install -y libdbusmenu-gtk4
 sudo apt install -y libfaudio0 # Wine
 sudo apt install -y libglib2.0-0
 sudo apt install -y libgtk2.0-0:i386 # Steam controller
 sudo apt install -y libgtk-3-0
 sudo apt install -y libindicator7 # Chrome
+sudo apt install -y libkrb5-dev # Dotnet
 sudo apt install -y libopenal1
 sudo apt install -y libsdl2-2.0-0 # Misc Steam games
 sudo apt install -y libsdl2-ttf-2.0-0
 sudo apt install -y libsdl-ttf2.0-0
+sudo apt install -y libssl-dev # Dotnet
 sudo apt install -y libtcmalloc-minimal4 # Portal 2
 sudo apt install -y libxss1 # Chrome
 sudo apt install -y libxtst6:i386 # Steam controller
