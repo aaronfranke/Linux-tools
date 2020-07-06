@@ -49,7 +49,7 @@ mp3ogg() {
     for i in *.mp3; do
         name=`echo $i | cut -d'.' -f1`
         echo "Converting ${name}.mp3 "
-        ffmpeg -y -i "$i" "${name}.ogg" 2> /dev/null
+        ffmpeg -y -i "$i" -vn "${name}.ogg" 2> /dev/null
     done
     echo "Done! "
 }
@@ -58,7 +58,7 @@ m4aogg() {
     for i in *.m4a; do
         name=`echo $i | cut -d'.' -f1`
         echo "Converting ${name}.m4a "
-        ffmpeg -y -i "$i" "${name}.ogg" 2> /dev/null
+        ffmpeg -y -i "$i" -vn "${name}.ogg" 2> /dev/null
     done
     echo "Done! "
 }
@@ -76,7 +76,7 @@ wavogg() {
     for i in *.wav; do
         name=`echo $i | cut -d'.' -f1`
         echo "Converting ${name}.wav "
-        ffmpeg -y -i "$i" "${name}.ogg" 2> /dev/null
+        ffmpeg -y -i "$i" -vn "${name}.ogg" 2> /dev/null
     done
     echo "Done! "
 }
@@ -85,7 +85,7 @@ opusogg() {
     for i in *.opus; do
         name=`echo $i | cut -d'.' -f1`
         echo "Converting ${name}.opus "
-        ffmpeg -y -i "$i" "${name}.ogg" 2> /dev/null
+        ffmpeg -y -i "$i" -vn "${name}.ogg" 2> /dev/null
     done
     echo "Done! "
 }
