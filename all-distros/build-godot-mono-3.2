@@ -85,9 +85,8 @@ rm -f modules/mono/glue/mono_glue.gen.cpp # Neikeq's fault
 
 # Actually begin the build process here:
 
-scons -j6 p=x11 tools=yes module_mono_enabled=yes mono_glue=no
-./bin/godot.x11.tools.64.mono --generate-mono-glue modules/mono/glue
-scons -j6 p=x11 tools=yes module_mono_enabled=yes mono_glue=yes
+scons -j6 p=x11 tools=yes module_mono_enabled=yes mono_glue=no || echo -e '\a'
+./bin/godot.x11.tools.64.mono --generate-mono-glue modules/mono/glue || echo -e '\a'
+scons -j6 p=x11 tools=yes module_mono_enabled=yes mono_glue=yes || echo -e '\a'
 
 ./bin/godot.x11.tools.64.mono
-
