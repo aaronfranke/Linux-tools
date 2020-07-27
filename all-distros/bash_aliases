@@ -109,3 +109,17 @@ stripogg() {
     done
     echo "Done! "
 }
+
+downloadwebsite() {
+    DOMAIN=$(echo $1 | awk -F '/' '{print $1}' | awk -F '.' '{print $2,$3}' OFS=".")
+    wget \
+     --recursive \
+     --no-clobber \
+     --page-requisites \
+     --html-extension \
+     --convert-links \
+     --restrict-file-names=windows \
+     --domains $DOMAIN \
+     --no-parent \
+         $1
+}
