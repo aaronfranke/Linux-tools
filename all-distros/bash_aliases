@@ -36,6 +36,15 @@ recursive() {
     find . -type f -exec "$*" {} \;
 }
 
+fetchall() {
+    cd "$HOME/workspace"
+    for i in *; do
+        cd "$HOME/workspace/$i"
+        pwd
+        git fetch --all
+    done
+}
+
 replaceall() {
     find . -name "*.$1" -exec sed -i -e "s/$2/$3/g" {} \;
 }
