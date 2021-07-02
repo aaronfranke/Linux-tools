@@ -29,12 +29,18 @@ acid() {
     done
 }
 
-format() {
-    find . -regex '.*\.\(cpp\|hpp\|cc\|cxx\)' -exec clang-format -style=file -i {} \;
-}
-
-recursive() {
-    find . -type f -exec "$*" {} \;
+downloadwebsite() {
+    DOMAIN=$(echo $1 | awk -F '/' '{print $1}' | awk -F '.' '{print $2,$3}' OFS=".")
+    wget \
+     --recursive \
+     --no-clobber \
+     --page-requisites \
+     --html-extension \
+     --convert-links \
+     --restrict-file-names=windows \
+     --domains $DOMAIN \
+     --no-parent \
+         $1
 }
 
 fetchall() {
@@ -46,14 +52,32 @@ fetchall() {
     done
 }
 
-replaceall() {
-    find . -name "*.$1" -exec sed -i -e "s/$2/$3/g" {} \;
+format() {
+    find . -regex '.*\.\(cpp\|hpp\|cc\|cxx\)' -exec clang-format -style=file -i {} \;
+}
+
+recursive() {
+    find . -type f -exec "$*" {} \;
 }
 
 releasemouse() {
     setxkbmap -option grab:break_actions
     xdotool key XF86Ungrab
 }
+
+replaceall() {
+    find . -name "*.$1" -exec sed -i -e "s/$2/$3/g" {} \;
+}
+
+updatemaster() {
+    git fetch godotengine
+    git checkout master
+    git reset godotengine/master
+    git checkout .
+    git push
+}
+
+# Media converting methods.
 
 mp3ogg() {
     for i in *.mp3; do
@@ -77,6 +101,15 @@ mkvogg() {
     for i in *.mkv; do
         name=`echo $i | cut -d'.' -f1`
         echo "Converting ${name}.mkv "
+        ffmpeg -y -i "$i" -vn "${name}.ogg" 2> /dev/null
+    done
+    echo "Done! "
+}
+
+mp4ogg() {
+    for i in *.mp4; do
+        name=`echo $i | cut -d'.' -f1`
+        echo "Converting ${name}.mp4 "
         ffmpeg -y -i "$i" -vn "${name}.ogg" 2> /dev/null
     done
     echo "Done! "
@@ -118,18 +151,4 @@ stripogg() {
         mv "${name}.tmp.ogg" "$i"
     done
     echo "Done! "
-}
-
-downloadwebsite() {
-    DOMAIN=$(echo $1 | awk -F '/' '{print $1}' | awk -F '.' '{print $2,$3}' OFS=".")
-    wget \
-     --recursive \
-     --no-clobber \
-     --page-requisites \
-     --html-extension \
-     --convert-links \
-     --restrict-file-names=windows \
-     --domains $DOMAIN \
-     --no-parent \
-         $1
 }
