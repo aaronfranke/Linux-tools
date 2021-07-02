@@ -81,20 +81,17 @@ sudo apt full-upgrade -y
 
 # These packages should be installed first
 
-sudo apt install -y openssh-server # For accessing a computer remotely via SSH
 sudo apt install -y vlc # Depends on a lot of *specific versions* of libraries
 
 # Misc libraries, I recommend keeping everything here.
 # Many of these are already installed on Ubuntu, but we should
 # install them manually just in case this is some other distro
 
-sudo apt install -y clang
 sudo apt install -y cmake
 sudo apt install -y cpp
 sudo apt install -y curl
 sudo apt install -y exfat-utils
 sudo apt install -y flac
-sudo apt install -y gcc g++
 sudo apt install -y gconf-service # GitKraken
 sudo apt install -y gconf2 # GitKraken
 sudo apt install -y lame
@@ -133,9 +130,23 @@ sudo apt install -y x264
 # Developer tools, useful for everyone, ex: for compiling software
 
 sudo apt install -y build-essential
+sudo apt install -y clang
 sudo apt install -y cmake
+sudo apt install -y gcc g++
 sudo apt install -y git
 sudo apt install -y pkg-config
+sudo apt install -y scons
+sudo apt install -y libx11-dev
+sudo apt install -y libxcursor-dev
+sudo apt install -y libxinerama-dev
+sudo apt install -y libgl1-mesa-dev
+sudo apt install -y libglu-dev
+sudo apt install -y libasound2-dev
+sudo apt install -y libpulse-dev
+sudo apt install -y libudev-dev
+sudo apt install -y libxi-dev
+sudo apt install -y libxrandr-dev
+sudo apt install -y yasm
 
 # Itch stuff
 
@@ -187,8 +198,6 @@ fi
 
 sudo apt install -y baobab
 sudo apt install -y dconf-editor
-sudo apt install -y engrampa
-sudo apt install -y gnome-software
 sudo apt install -y gnome-system-monitor
 sudo apt install -y gparted
 sudo apt install -y grub-customizer
@@ -203,13 +212,10 @@ sudo apt install -y qbittorrent
 sudo apt install -y code
 sudo apt install -y firefox
 sudo apt install -y gimp
-sudo apt install -y libreoffice
 
 # Things that should be installed last
 
 sudo apt install -y --install-recommends winehq-devel
-sudo apt install -y libdvd-pkg
-sudo dpkg-reconfigure libdvd-pkg
 sudo apt install -y steam
 sudo rm -f itch-setup # We want to wait a bit to remove the file
 
