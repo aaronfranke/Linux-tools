@@ -197,7 +197,7 @@ if [[ "$GNOME_EXISTED_BEFORE" == 1 ]]; then
 fi
 
 # Install useful GUI programs via Flatpak.
-for f in com.discordapp.Discord org.mozilla.firefox org.gimp.GIMP org.kde.kdenlive com.obsproject.Studio com.slack.Slack; do
+for f in com.discordapp.Discord org.gimp.GIMP org.kde.kdenlive com.obsproject.Studio com.slack.Slack; do
   flatpak install flathub --noninteractive -y $f
 done
 
