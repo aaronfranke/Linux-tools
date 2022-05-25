@@ -53,6 +53,11 @@ fetchall() {
     done
 }
 
+pr() {
+    git fetch origin "pull/$1/head:pr$1"
+    git switch "pr$1"
+}
+
 format() {
     find . -regex '.*\.\(cpp\|hpp\|cc\|cxx\)' -exec clang-format -style=file -i {} \;
 }
