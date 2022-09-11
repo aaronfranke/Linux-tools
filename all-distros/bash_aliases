@@ -59,6 +59,12 @@ pr() {
     git switch "pr/$1" || return 1
 }
 
+qr() {
+    command -v qrencode >/dev/null 2>&1 || { echo >&2 "Please install qrencode with 'sudo apt install qrencode' or 'sudo pacman -S qrencode'."; return 1; }
+    : ${1?"Usage: qr https://example.com"}
+    qrencode --type=ansiutf8 --level=H "$@" || return 1
+}
+
 format() {
     find . -regex '.*\.\(cpp\|hpp\|cc\|cxx\)' -exec clang-format -style=file -i {} \;
 }
