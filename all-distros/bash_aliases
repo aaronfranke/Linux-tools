@@ -66,6 +66,7 @@ qr() {
 }
 
 gk() {
+    if [[ "$OSTYPE" != "linux"* ]]; then echo "Only Linux is supported."; return 1; fi
     command -v gitkraken >/dev/null 2>&1 || { echo >&2 "GitKraken is not installed, cannot open current directory."; return 1; }
     gitkraken "$(pwd)"
 }
