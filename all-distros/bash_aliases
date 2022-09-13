@@ -65,6 +65,11 @@ qr() {
     qrencode --type=ansiutf8 --level=H "$@" || return 1
 }
 
+gk() {
+    command -v gitkraken >/dev/null 2>&1 || { echo >&2 "GitKraken is not installed, cannot open current directory."; return 1; }
+    gitkraken "$(pwd)"
+}
+
 format() {
     find . -regex '.*\.\(cpp\|hpp\|cc\|cxx\)' -exec clang-format -style=file -i {} \;
 }
