@@ -171,3 +171,22 @@ stripogg() {
     done
     echo "Done! "
 }
+
+pdd() {
+        : ${1?"Usage: pdd if=/dev/zero of=/dev/null"}
+        cmd="sudo dd $@ status=progress"
+
+        echo
+        echo "PLEASE REVIEW THE COMMAND AND DEVICE LIST BELOW."
+        echo
+        echo "Command: '$cmd'"
+        echo
+        echo "Devices:"
+        lsblk
+        echo
+        echo -n 'THE DISK OR FILE AFTER "of=" WILL BE PERMANENTLY OVERWRITTEN. Type 'yes' to confirm: ' && read 'x' && [ $x == 'yes' ] || return
+        echo "Running in 5 seconds... Ctrl+C to cancel."
+        sleep 5 || return
+        echo
+        $cmd
+}
