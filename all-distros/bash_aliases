@@ -72,8 +72,8 @@ gk() {
 }
 
 port() {
-  : ${1?"Finds process using port. Usage: port 80"}
-  sudo ss -lptn "sport = :$1" || echo "Port is not in use."
+  : ${1?"Finds processes using port. Example: port 80"}
+  sudo lsof -i :"$1" || echo "Port is not in use."
 }
 
 format() {
