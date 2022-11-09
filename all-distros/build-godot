@@ -54,6 +54,6 @@ rm -Rf ./bin/godot.* # Remove previously built binaries
 
 # Actually begin the build process here:
 
-scons -j6 p=linuxbsd tools=yes || echo -e '\a'
+scons target=editor werror=yes || echo -e '\a'
 
-./bin/godot.linuxbsd.tools.64
+./bin/godot.linuxbsd.editor.x86_64

@@ -6,12 +6,6 @@ IFS=$'\n\t'
 # Loops through all text files tracked by Git.
 git grep -zIl '' |
 while IFS= read -rd '' f; do
-    # Exclude csproj and hdr files.
-    if [[ "$f" == *"csproj" ]]; then
-        continue
-    elif [[ "$f" == *"hdr" ]]; then
-        continue
-    fi
     # Ensures that files are UTF-8 formatted.
     recode UTF-8 "$f" 2> /dev/null
     # Ensures that files have LF line endings.

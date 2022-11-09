@@ -4,7 +4,7 @@
 
 # Export useful environment variables
 export GPG_TTY=$(tty)
-export SCONSFLAGS="werror=yes -j4"
+export SCONSFLAGS="werror=yes"
 
 # Aliases for simple common commands
 alias butler="$HOME/.config/itch/apps/butler/butler"
