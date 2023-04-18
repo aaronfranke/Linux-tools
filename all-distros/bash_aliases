@@ -101,6 +101,13 @@ updatemaster() {
     git push
 }
 
+svgopt() {
+    for file in *; do
+        svgcleaner $file $file.opt.svg
+        mv $file.opt.svg $file
+    done
+}
+
 # Media converting methods.
 
 mp3ogg() {
