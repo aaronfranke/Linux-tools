@@ -163,32 +163,8 @@ sudo apt install -y pv
 sudo apt install -y tldr
 sudo apt install -y youtube-dl
 
-# Check if Gnome exists. We'll use this later.
-GNOME_EXISTED_BEFORE=0
-if [ -f "/usr/bin/gnome-shell" ]; then
-    GNOME_EXISTED_BEFORE=1
-fi
-
-# If Snap exists, replace Snap apps with other sources.
-if [ -f "/usr/bin/snap" ]; then
-    # Remove Snap apps.
-    sudo snap remove snap-store
-    sudo snap remove snapd-desktop-integration
-    sudo snap remove firefox
-    sudo snap remove gnome-3-38-2004
-    sudo snap remove gtk-common-themes
-    sudo snap remove bare
-    sudo snap remove core20
-    # Disable and purge Snap.
-    sudo systemctl disable snapd.service
-    sudo rm -Rf /var/cache/snapd/
-    sudo apt purge snapd
-    # Prevent accidentally reinstalling Snap.
-    sudo apt-mark hold snapd
-fi
-
 # GNOME stuff.
-if [[ "$GNOME_EXISTED_BEFORE" == 1 ]]; then
+if [ -f "/usr/bin/gnome-shell" ]; then
     sudo apt install -y gnome-core
     sudo apt install -y chrome-gnome-shell
     sudo apt install -y gnome-shell-extensions
@@ -198,7 +174,7 @@ fi
 
 # Install useful GUI programs via Flatpak.
 for f in com.discordapp.Discord org.gimp.GIMP org.kde.kdenlive com.obsproject.Studio com.slack.Slack; do
-  flatpak install flathub --noninteractive -y $f
+    flatpak install flathub --noninteractive -y $f
 done
 
 # Install useful GUI programs via apt.
