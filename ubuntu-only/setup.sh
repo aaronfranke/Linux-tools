@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo
-echo "Note: This script is designed for new installs of Ubuntu 22.04 and flavors."
+echo "Note: This script is designed for new installs of Ubuntu 24.04 and flavors."
 echo "If you already have a system with lots of custom repos, things may conflict."
 echo "This script will execute in a few seconds unless you press Ctrl+Z to exit."
 echo
@@ -13,7 +13,6 @@ sudo apt upgrade -y
 sudo apt full-upgrade -y
 
 # Important stuff that should be done first.
-sudo dpkg --add-architecture i386
 sudo apt install -y apt-transport-https
 sudo apt install -y ca-certificates # Mono needs it
 sudo apt install -y dirmngr # Mono needs it
@@ -42,18 +41,13 @@ if [ ! -f "$HOME/.bash_aliases" ]; then
 fi
 
 # Ubuntu dropped support for older SSL, but we need it for some apps.
-wget -O libssl1.1.deb "http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1l-1ubuntu1.2_amd64.deb"
+wget -O libssl1.1.deb "http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.22_amd64.deb"
 if [ ! -f "libssl1.1.deb" ]; then
     echo "Failed to download libssl1.1"
     exit 1
 fi
 sudo dpkg -i libssl1.1.deb
 sudo rm -f libssl1.1.deb
-
-# Mono stuff.
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-echo "deb https://download.mono-project.com/repo/ubuntu stable-focal main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
-echo "deb https://download.mono-project.com/repo/ubuntu vs-focal main" | sudo tee /etc/apt/sources.list.d/mono-official-vs.list
 
 # Wine stuff.
 sudo sed -i -e 's/scope = 1/scope = 0/g' /etc/sysctl.d/10-ptrace.conf
@@ -129,11 +123,6 @@ sudo apt install -y libxi-dev
 sudo apt install -y libxrandr-dev
 sudo apt install -y yasm
 
-# Itch stuff.
-wget -O itch-setup nuts.itch.zone/download
-chmod 777 itch-setup
-./itch-setup --silent &
-
 # GitKraken stuff.
 wget -O gitkraken.deb "https://release.gitkraken.com/linux/gitkraken-amd64.deb"
 sudo dpkg -i gitkraken.deb
@@ -161,7 +150,7 @@ sudo apt install -y mediainfo
 sudo apt install -y neofetch
 sudo apt install -y pv
 sudo apt install -y tldr
-sudo apt install -y youtube-dl
+sudo apt install -y yt-dlp
 
 # GNOME stuff.
 if [ -f "/usr/bin/gnome-shell" ]; then

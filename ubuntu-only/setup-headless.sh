@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo
-echo "Note: This script is designed for new installs of Ubuntu 22.04 and flavors."
+echo "Note: This script is designed for new installs of Ubuntu 24.04 and flavors."
 echo "If you already have a system with lots of custom repos, things may conflict."
 echo "This script will execute in a few seconds unless you press Ctrl+Z to exit."
 echo
@@ -55,7 +55,7 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 # install them manually just in case this is some other distro.
 sudo apt install -y cpp
 sudo apt install -y curl
-sudo apt install -y dkms
+sudo apt install -y dkms # Drivers
 sudo apt install -y libc++1
 sudo apt install -y libcap2-bin
 sudo apt install -y libcurl4-openssl-dev # Dotnet
