@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Download the video
+yt-dlp -f ba -x -o "%(title)s.%(ext)s" --restrict-filenames "$1"
+
+# Convert the filename to lowercase
+for file in *.opus; do
+    mv "$file" "$(echo "$file" | tr '[:upper:]' '[:lower:]')"
+done
