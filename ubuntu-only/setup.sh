@@ -1,11 +1,11 @@
 #!/bin/bash
 
 echo
-echo "Note: This script is designed for new installs of Ubuntu 24.04 and flavors."
+echo "Note: This script is designed for new installs of Ubuntu 26.04 and flavors."
 echo "If you already have a system with lots of custom repos, things may conflict."
 echo "This script will execute in a few seconds unless you press Ctrl+Z to exit."
 echo
-sudo sleep 10 # sudo before sleep elevates this script to sudo priviliges after the password prompt.
+sudo sleep 10 # sudo before sleep elevates this script to sudo privileges after the password prompt.
 
 # Start with updates.
 sudo apt update
@@ -13,10 +13,10 @@ sudo apt upgrade -y
 sudo apt full-upgrade -y
 
 # Important stuff that should be done first.
-sudo apt install -y apt-transport-https
-sudo apt install -y ca-certificates # Mono needs it
-sudo apt install -y dirmngr # Mono needs it
-sudo apt install -y gnupg # Mono needs it
+sudo apt install -y apt-transport-https # Needs to be installed on Ubuntu 26.04.
+sudo apt install -y ca-certificates # Mono needs it, already installed on Ubuntu 26.04.
+sudo apt install -y dirmngr # Mono needs it, already installed on Ubuntu 26.04.
+sudo apt install -y gnupg # Mono needs it, already installed on Ubuntu 26.04.
 
 
 # Create "~/.local/bin" and put some scripts there
@@ -41,7 +41,7 @@ if [ ! -f "$HOME/.bash_aliases" ]; then
 fi
 
 # Ubuntu dropped support for older SSL, but we need it for some apps.
-wget -O libssl1.1.deb "http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.22_amd64.deb"
+wget -O libssl1.1.deb "https://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.24_amd64.deb"
 if [ ! -f "libssl1.1.deb" ]; then
     echo "Failed to download libssl1.1"
     exit 1
@@ -50,7 +50,7 @@ sudo dpkg -i libssl1.1.deb
 sudo rm -f libssl1.1.deb
 
 # Wine stuff.
-sudo sed -i -e 's/scope = 1/scope = 0/g' /etc/sysctl.d/10-ptrace.conf
+echo 'kernel.yama.ptrace_scope = 0' | sudo tee /etc/sysctl.d/10-ptrace.conf
 
 # More updates.
 sudo apt update
@@ -60,7 +60,8 @@ sudo apt full-upgrade -y
 
 # These packages should be installed first.
 sudo apt install -y vlc # Depends on a lot of *specific versions* of libraries
-sudo apt install -y flatpak # Used for installing other apps
+sudo apt install -y build-essential # Required dependency for many things, ex: dkms, compilers.
+sudo apt install -y flatpak libflatpak0 # Used for installing other apps
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # Misc libraries, I recommend keeping everything here.
@@ -70,16 +71,12 @@ sudo apt install -y cpp
 sudo apt install -y curl
 sudo apt install -y dkms
 sudo apt install -y flac
-sudo apt install -y gconf-service # GitKraken
-sudo apt install -y gconf2 # GitKraken
 sudo apt install -y lame
 sudo apt install -y lib32z1
 sudo apt install -y lib32stdc++6
-sudo apt install -y libappindicator1 # Chrome
 sudo apt install -y libc++1
 sudo apt install -y libcap2-bin
 sudo apt install -y libcurl4-openssl-dev # Dotnet
-sudo apt install -y libdbusmenu-gtk4
 sudo apt install -y libfaudio0 # Wine
 sudo apt install -y libglib2.0-0
 sudo apt install -y libgtk2.0-0:i386 # Steam controller
@@ -94,32 +91,32 @@ sudo apt install -y libssl-dev # Dotnet
 sudo apt install -y libtcmalloc-minimal4 # Portal 2
 sudo apt install -y libxss1 # Chrome
 sudo apt install -y libxtst6:i386 # Steam controller
-sudo apt install -y mono-complete
+sudo apt install -y mono-devel # The mono-complete package does not exist anymore.
 sudo apt install -y net-tools # ifconfig
-sudo apt install -y nuget
 sudo apt install -y openjdk-8-jre
-sudo apt install -y python2-minimal # GitKraken
+sudo apt install -y openjdk-17-jre
+sudo apt install -y openjdk-21-jre
 sudo apt install -y python3
 sudo apt install -y python3-gpg # Dropbox
 sudo apt install -y x264
 
 # Developer tools, useful for everyone, ex: for compiling software.
-sudo apt install -y build-essential
 sudo apt install -y clang
 sudo apt install -y cmake
 sudo apt install -y gcc g++
 sudo apt install -y git
 sudo apt install -y pkg-config
 sudo apt install -y scons
-sudo apt install -y libx11-dev
-sudo apt install -y libxcursor-dev
-sudo apt install -y libxinerama-dev
+sudo apt install -y libasound2-dev
 sudo apt install -y libgl1-mesa-dev
 sudo apt install -y libglu-dev
-sudo apt install -y libasound2-dev
 sudo apt install -y libpulse-dev
 sudo apt install -y libudev-dev
+sudo apt install -y libwayland-dev
+sudo apt install -y libx11-dev
+sudo apt install -y libxcursor-dev
 sudo apt install -y libxi-dev
+sudo apt install -y libxinerama-dev
 sudo apt install -y libxrandr-dev
 sudo apt install -y yasm
 
@@ -135,7 +132,7 @@ sudo rm -f code.deb
 
 # Chrome stuff.
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo apt install -y ./google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome-stable_current_amd64.deb
 sudo rm -f google-chrome-stable_current_amd64.deb
 
 # Misc useful terminal stuff.
@@ -147,9 +144,8 @@ sudo apt install -y fortune-mod
 sudo apt install -y htop
 sudo apt install -y icoutils
 sudo apt install -y mediainfo
-sudo apt install -y neofetch
+sudo apt install -y fastfetch
 sudo apt install -y pv
-sudo apt install -y tldr
 sudo apt install -y yt-dlp
 
 # GNOME stuff.
@@ -180,7 +176,6 @@ sudo apt install -y qbittorrent
 # Big things that should be installed last.
 sudo apt install -y steam
 sudo apt install -y wine
-sudo rm -f itch-setup # We want to wait a bit to remove the file.
 
 # Finish with updates, this time update certs too.
 sudo update-ca-certificates -f

@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Firefox
+Exec=/home/aaronfranke/.local/share/firefox/firefox %u
+Icon=/home/aaronfranke/.local/share/firefox/firefox.svg
+Terminal=false
