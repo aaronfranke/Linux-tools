@@ -40,14 +40,17 @@ if [ ! -f "$HOME/.bash_aliases" ]; then
     fi
 fi
 
-# Ubuntu dropped support for older SSL, but we need it for some apps.
-wget -O libssl1.1.deb "https://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.24_amd64.deb"
-if [ ! -f "libssl1.1.deb" ]; then
-    echo "Failed to download libssl1.1"
-    exit 1
+arch="$(uname -m)"
+if [[ "$arch" == "x86_64" || "$arch" == "amd64" ]]; then
+    # Ubuntu dropped support for older SSL, but we need it for some apps.
+    wget -O libssl1.1.deb "https://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.24_amd64.deb"
+    if [ ! -f "libssl1.1.deb" ]; then
+        echo "Failed to download libssl1.1"
+        exit 1
+    fi
+    sudo dpkg -i libssl1.1.deb
+    sudo rm -f libssl1.1.deb
 fi
-sudo dpkg -i libssl1.1.deb
-sudo rm -f libssl1.1.deb
 
 # Wine stuff.
 echo 'kernel.yama.ptrace_scope = 0' | sudo tee /etc/sysctl.d/10-ptrace.conf
@@ -72,14 +75,11 @@ sudo apt install -y curl
 sudo apt install -y dkms
 sudo apt install -y flac
 sudo apt install -y lame
-sudo apt install -y lib32z1
-sudo apt install -y lib32stdc++6
 sudo apt install -y libc++1
 sudo apt install -y libcap2-bin
 sudo apt install -y libcurl4-openssl-dev # Dotnet
 sudo apt install -y libfaudio0 # Wine
 sudo apt install -y libglib2.0-0
-sudo apt install -y libgtk2.0-0:i386 # Steam controller
 sudo apt install -y libgtk-3-0
 sudo apt install -y libindicator7 # Chrome
 sudo apt install -y libkrb5-dev # Dotnet
@@ -90,7 +90,6 @@ sudo apt install -y libsdl-ttf2.0-0
 sudo apt install -y libssl-dev # Dotnet
 sudo apt install -y libtcmalloc-minimal4 # Portal 2
 sudo apt install -y libxss1 # Chrome
-sudo apt install -y libxtst6:i386 # Steam controller
 sudo apt install -y mono-devel # The mono-complete package does not exist anymore.
 sudo apt install -y net-tools # ifconfig
 sudo apt install -y openjdk-8-jre
@@ -98,7 +97,14 @@ sudo apt install -y openjdk-17-jre
 sudo apt install -y openjdk-21-jre
 sudo apt install -y python3
 sudo apt install -y python3-gpg # Dropbox
+sudo apt install -y steam-devices # Steam devices
 sudo apt install -y x264
+if [[ "$arch" == "x86_64" || "$arch" == "amd64" ]]; then
+    sudo apt install -y lib32z1
+    sudo apt install -y lib32stdc++6
+    sudo apt install -y libgtk2.0-0:i386 # Steam controller
+    sudo apt install -y libxtst6:i386 # Steam controller
+fi
 
 # Developer tools, useful for everyone, ex: for compiling software.
 sudo apt install -y clang
@@ -109,6 +115,7 @@ sudo apt install -y pkg-config
 sudo apt install -y scons
 sudo apt install -y libasound2-dev
 sudo apt install -y libgl1-mesa-dev
+sudo apt install -y libglu1-mesa-dev
 sudo apt install -y libglu-dev
 sudo apt install -y libpulse-dev
 sudo apt install -y libudev-dev
@@ -120,20 +127,20 @@ sudo apt install -y libxinerama-dev
 sudo apt install -y libxrandr-dev
 sudo apt install -y yasm
 
-# GitKraken stuff.
-wget -O gitkraken.deb "https://release.gitkraken.com/linux/gitkraken-amd64.deb"
-sudo dpkg -i gitkraken.deb
-sudo rm -f gitkraken.deb
-
-# VS Code stuff.
-wget -O code.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
-sudo dpkg -i code.deb
-sudo rm -f code.deb
-
-# Chrome stuff.
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo dpkg -i google-chrome-stable_current_amd64.deb
-sudo rm -f google-chrome-stable_current_amd64.deb
+if [[ "$arch" == "x86_64" || "$arch" == "amd64" ]]; then
+    # GitKraken stuff.
+    wget -O gitkraken.deb "https://release.gitkraken.com/linux/gitkraken-amd64.deb"
+    sudo dpkg -i gitkraken.deb
+    sudo rm -f gitkraken.deb
+    # VS Code stuff.
+    wget -O code.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
+    sudo dpkg -i code.deb
+    sudo rm -f code.deb
+    # Chrome stuff.
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    sudo dpkg -i google-chrome-stable_current_amd64.deb
+    sudo rm -f google-chrome-stable_current_amd64.deb
+fi
 
 # Misc useful terminal stuff.
 sudo apt install -y cmatrix
@@ -151,16 +158,21 @@ sudo apt install -y yt-dlp
 # GNOME stuff.
 if [ -f "/usr/bin/gnome-shell" ]; then
     sudo apt install -y gnome-core
-    sudo apt install -y chrome-gnome-shell
+    sudo apt install -y gnome-browser-connector
     sudo apt install -y gnome-shell-extensions
     sudo apt install -y gnome-tweaks
     sudo apt install -y gnome-software-plugin-flatpak
 fi
 
 # Install useful GUI programs via Flatpak.
-for f in com.discordapp.Discord org.gimp.GIMP org.kde.kdenlive com.obsproject.Studio com.slack.Slack; do
+for f in org.gimp.GIMP org.kde.kdenlive; do
     flatpak install flathub --noninteractive -y $f
 done
+if [[ "$arch" == "x86_64" || "$arch" == "amd64" ]]; then
+    for f in com.discordapp.Discord com.obsproject.Studio com.slack.Slack; do
+        flatpak install flathub --noninteractive -y $f
+    done
+fi
 
 # Install useful GUI programs via apt.
 sudo apt install -y baobab
